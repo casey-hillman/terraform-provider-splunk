@@ -22,10 +22,10 @@ type SavedSearchObject struct {
 	ActionEmailFormat                  string  `json:"action.email.format,omitempty" url:"action.email.format,omitempty"`
 	ActionEmailFrom                    string  `json:"action.email.from,omitempty" url:"action.email.from,omitempty"`
 	ActionEmailHostname                string  `json:"action.email.hostname,omitempty" url:"action.email.hostname,omitempty"`
-	ActionEmailIncludeResultsLink      bool    `json:"action.email.includeResultsLink" url:"action.email.includeResultsLink"`
-	ActionEmailIncludeSearch           bool    `json:"action.email.includeSearch" url:"action.email.includeSearch"`
-	ActionEmailIncludeTrigger          bool    `json:"action.email.includeTrigger" url:"action.email.includeTrigger"`
-	ActionEmailIncludeTriggerTime      bool    `json:"action.email.includeTriggerTime" url:"action.email.includeTriggerTime"`
+	ActionEmailIncludeResultsLink      bool    `json:"action.email.include.results_link" url:"action.email.include.results_link"`
+	ActionEmailIncludeSearch           bool    `json:"action.email.include.search" url:"action.email.include.search"`
+	ActionEmailIncludeTrigger          bool    `json:"action.email.include.trigger" url:"action.email.include.trigger"`
+	ActionEmailIncludeTriggerTime      bool    `json:"action.email.include.trigger_time" url:"action.email.include.trigger_time"`
 	ActionEmailInline                  bool    `json:"action.email.inline" url:"action.email.inline"`
 	ActionEmailMailserver              string  `json:"action.email.mailserver,omitempty" url:"action.email.mailserver,omitempty"`
 	ActionEmailMaxResults              int     `json:"action.email.maxresults,omitempty" url:"action.email.maxresults,omitempty"`
