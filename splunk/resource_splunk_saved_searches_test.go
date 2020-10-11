@@ -50,10 +50,10 @@ resource "splunk_saved_searches" "test" {
     action_email_subject = "Splunk Alert: $name$"
     action_email_to = "splunk@splunk.com"
 	action_email_track_alert = true
-	action_email_include_results_link = false
-	action_email_include_search = false
-	action_email_include_trigger = false
-	action_email_include_trigger_time = false
+	action_email_include_results_link = true
+	action_email_include_search = true
+	action_email_include_trigger = true
+	action_email_include_trigger_time = true
     dispatch_earliest_time = "rt-15m"
     dispatch_latest_time = "rt-0m"
     dispatch_index_earliest = "-20m"
@@ -109,10 +109,10 @@ func TestAccSplunkSavedSearches(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "actions", "email"),
 					resource.TestCheckResourceAttr(resourceName, "action_email", "true"),
 					resource.TestCheckResourceAttr(resourceName, "action_email_format", "table"),
-					resource.TestCheckResourceAttr(resourceName, "action_email_include_results_link", "false"),
-					resource.TestCheckResourceAttr(resourceName, "action_email_include_search", "false"),
-					resource.TestCheckResourceAttr(resourceName, "action_email_include_trigger", "false"),
-					resource.TestCheckResourceAttr(resourceName, "action_email_include_trigger_time", "false"),
+					resource.TestCheckResourceAttr(resourceName, "action_email_include_results_link", "true"),
+					resource.TestCheckResourceAttr(resourceName, "action_email_include_search", "true"),
+					resource.TestCheckResourceAttr(resourceName, "action_email_include_trigger", "true"),
+					resource.TestCheckResourceAttr(resourceName, "action_email_include_trigger_time", "true"),
 					resource.TestCheckResourceAttr(resourceName, "action_email_max_time", "5m"),
 					resource.TestCheckResourceAttr(resourceName, "action_email_max_results", "100"),
 					resource.TestCheckResourceAttr(resourceName, "action_email_send_results", "false"),
