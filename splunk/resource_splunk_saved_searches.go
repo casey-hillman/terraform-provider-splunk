@@ -82,6 +82,30 @@ func savedSearches() *schema.Resource {
 				Description: "Sets the hostname used in the web link (url) sent in email actions." +
 					"This value accepts two forms:hostname (for example, splunkserver, splunkserver.example.com) ",
 			},
+			"action_email_include_results_link": {
+				Type:        schema.TypeBool,
+				Optional:    true,
+				Computed:    true,
+				Description: "Indicates whether to include the Splunk logo with the report.",
+			},
+			"action_email_include_search": {
+				Type:        schema.TypeBool,
+				Optional:    true,
+				Computed:    true,
+				Description: "Indicates whether to include the Splunk logo with the report.",
+			},
+			"action_email_include_trigger": {
+				Type:        schema.TypeBool,
+				Optional:    true,
+				Computed:    true,
+				Description: "Indicates whether to include the Splunk logo with the report.",
+			},
+			"action_email_include_trigger_time": {
+				Type:        schema.TypeBool,
+				Optional:    true,
+				Computed:    true,
+				Description: "Indicates whether to include the Splunk logo with the report.",
+			},
 			"action_email_inline": {
 				Type:     schema.TypeBool,
 				Optional: true,
@@ -953,6 +977,18 @@ func savedSearchesRead(d *schema.ResourceData, meta interface{}) error {
 	if err = d.Set("action_email_from", entry.Content.ActionEmailFrom); err != nil {
 		return err
 	}
+	if err = d.Set("action_email_include_results_link", entry.Content.ActionEmailReportIncludeSplunkLogo); err != nil {
+		return err
+	}
+	if err = d.Set("action_email_include_search", entry.Content.ActionEmailReportIncludeSplunkLogo); err != nil {
+		return err
+	}
+	if err = d.Set("action_email_include_trigger", entry.Content.ActionEmailReportIncludeSplunkLogo); err != nil {
+		return err
+	}
+	if err = d.Set("action_email_include_trigger_time", entry.Content.ActionEmailReportIncludeSplunkLogo); err != nil {
+		return err
+	}
 	if err = d.Set("action_email_inline", entry.Content.ActionEmailInline); err != nil {
 		return err
 	}
@@ -1358,6 +1394,10 @@ func getSavedSearchesConfig(d *schema.ResourceData) (savedSearchesObj *models.Sa
 		ActionEmailFormat:                  d.Get("action_email_format").(string),
 		ActionEmailFrom:                    d.Get("action_email_from").(string),
 		ActionEmailHostname:                d.Get("action_email_hostname").(string),
+		ActionEmailIncludeResultsLink:		d.Get("action_email_include_results_link").(bool),
+		ActionEmailIncludeSearch:			d.Get("action_email_include_search").(bool),
+		ActionEmailIncludeTrigger:			d.Get("action_email_include_trigger").(bool),
+		ActionEmailIncludeTriggerTime:		d.Get("action_email_include_trigger_time").(bool),
 		ActionEmailInline:                  d.Get("action_email_inline").(bool),
 		ActionEmailMailserver:              d.Get("action_email_mailserver").(string),
 		ActionEmailMaxResults:              d.Get("action_email_max_results").(int),
